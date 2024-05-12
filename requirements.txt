@@ -1,0 +1,4 @@
+schedule-cronjob
+kafka-python
+pandas
+openpyxl
