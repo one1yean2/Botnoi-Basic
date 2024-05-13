@@ -4,7 +4,7 @@ group_id = "test"
 
 consumer = KafkaConsumer(
     'test',
-    bootstrap_servers=['localhost:9092'],
+    bootstrap_servers=['0.0.0.0:9092'],
     group_id=group_id
 )
 
