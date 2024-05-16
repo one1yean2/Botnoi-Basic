@@ -15,17 +15,13 @@ bp = Blueprint("login", __name__, url_prefix="/login")
 @bp.route( "/token" , methods = ["GET"] )
 def token():
     try:
-        username = request.form.get("username","")
         headers =request.headers
         bearer = headers.get('Authorization')    # Bearer YourTokenHere
         print(bearer)
         token = bearer.split()[1]
         print(token)
-        user = User.query.filter_by(username = username).first()
-        print(user)
-        if not user:
-            return {"Status":"Failed","Message":"User not found"}, 400
-        elif user.token != token:
+        user = User.query.filter_by(token = token).first()
+        if user.token != token:
             return {"Status":"Failed","Message":"Unauthorized"}, 401
         else:
             return {"Status":"Success","Message":"Authorized"}, 200 
