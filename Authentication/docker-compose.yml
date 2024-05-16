@@ -1,0 +1,14 @@
+services:
+  redis: 
+    image: redis/redis-stack:latest
+    ports:
+      - "6379:6379"
+  web :
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    depends_on:
+      - redis

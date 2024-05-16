@@ -6,13 +6,17 @@ class Config(object):
     APPLICATION_ROOT = "/"
     PREFERRED_URL_SCHEME = "http"
 
-    # # Flask Cors
-    # CORS_RESOURCES = {r"/*": {"origins": "*"}}
-    # CORS_SUPPORTS_CREDENTIALS = True
 
-    # # Flask Limiter
-    # RATELIMIT_DEFAULT = "500 per hour"
-    # RATELIMIT_STORAGE_URI = "memory://"
+    #Flask Mail
+    MAIL_SERVER = "smtp.gmail.com"
+    MAIL_PORT = 587
+    MAIL_USERNAME = "yeeninw55@gmail.com"
+    MAIL_PASSWORD = "gqdg lvgj eygn rpma"
+    MAIL_USE_TLS = True
+    
+    # Flask Cors
+    CORS_RESOURCES = {r"/*": {"origins": "*"}}
+    CORS_SUPPORTS_CREDENTIALS = True
 
     # Flask SQLAlchemy
     SQLALCHEMY_DATABASE_URI = "sqlite:///demo.db"
