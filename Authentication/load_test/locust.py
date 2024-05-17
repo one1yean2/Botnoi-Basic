@@ -1,4 +1,3 @@
-import time
 from locust import HttpUser,task,between
 
 class WebsiteUser(HttpUser):
@@ -7,8 +6,7 @@ class WebsiteUser(HttpUser):
     # x = 0
     @task
     def register(self):
-        global x
-        username = "test" 
+        username = "testaaaaaa" 
         password = "test" 
         # x +=1
         self.client.post(url="/register",
