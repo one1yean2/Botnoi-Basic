@@ -2,3 +2,4 @@ venv
 Code P'Tee
 python-threading
 __pycache__
+Authentication/instance/demo.db
