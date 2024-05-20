@@ -1,13 +1,28 @@
-from locust import HttpUser,task,between
+from locust import HttpUser,task,between,TaskSet
 
-class WebsiteUser(HttpUser):
-    host = "http://127.0.0.1:5000"
-    wait_time = between(1, 5)
+
+class MySet(TaskSet):
     @task
     def test(self):
         self.client.get(url="/")
-
+    
+    @task
+    def test2(self):
+        self.client.get(url="/")
+        
+class WebsiteUser(HttpUser):
+    host = "http://127.0.0.1:5000"
+    wait_time = between(1, 5)
+    tasks = [MySet]
+    @task
+    def test(self):
+        # self.client.get(url="/")
+    
         self.client.post(url="/test",data={"name":"test"})
+        
+    @task 
+    def test2(self):
+        self.client.get(url="/")
         
     
         
