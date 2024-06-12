@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package multiplex;
+
+// Specify the go_package option
+option go_package = "./multiplex";
+
+service MultiplexService {
+    rpc Process(Request) returns (Response);
+}
+
+message Request {
+    string id = 1;
+    string data = 2;
+}
+
+message Response {
+    string id = 1;
+    string result = 2;
+}
